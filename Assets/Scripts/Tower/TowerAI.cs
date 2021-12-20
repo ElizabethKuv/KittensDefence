@@ -69,7 +69,7 @@ public class TowerAI : MonoBehaviour
 
         if (bullet != null)
         {
-            bullet.Seek(target);
+            bullet.Hunt(target);
         }
     }
 

@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     public float speed = 30f;
     [SerializeField] private float damage;
 
-    public void Seek(Transform target)
+    public void Hunt(Transform target)
     {
         _transformTarget = target;
     }
