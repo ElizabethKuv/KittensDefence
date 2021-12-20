@@ -1,5 +1,7 @@
 using UnityEngine;
 using Button = UnityEngine.UI.Button;
+using UnityEngine.Tilemaps;
+
 
 [System.Serializable]
 public class Tower
@@ -15,6 +17,7 @@ public class TowerSpawner : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private LayerMask _towersLayer;
     [SerializeField] private MoneyComponent _moneyComponent;
+    [SerializeField] private Tilemap _tilemapGrass;
 
     private GameObject _towerPrefab;
     private Vector3 _positionToSpawn;
@@ -25,6 +28,7 @@ public class TowerSpawner : MonoBehaviour
     void Start()
     {
         MakeListenersForTowerButton(_towers.Length);
+        
     }
 
     private void MakeListenersForTowerButton(int buttonsCount)
@@ -84,7 +88,9 @@ public class TowerSpawner : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Vector3 positionToSpawn = new Vector3Int(Mathf.FloorToInt(hit.point.x), Mathf.FloorToInt(hit.point.y), 1);
+            Tilemap tilemap = _tilemapGrass.GetComponent<Tilemap>();
+            Vector3Int cellPosition = tilemap.WorldToCell(hit.point);
+            Vector3 positionToSpawn = tilemap.GetCellCenterWorld(cellPosition);
             return positionToSpawn;
         }
 

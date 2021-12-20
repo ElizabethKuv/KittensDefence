@@ -1130,7 +1130,7 @@ MonoBehaviour:
     maxEnemies: 10
     reward: 25
   - enemyPrefab: {fileID: 1332872148338941515, guid: 5a6b9d03efacde2448cd023ca94347b7, type: 3}
-    spawnInterval: 1
+    spawnInterval: 2
     maxEnemies: 15
     reward: 10
   - enemyPrefab: {fileID: 1332872148338941515, guid: 5a6b9d03efacde2448cd023ca94347b7, type: 3}
@@ -1399,6 +1399,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _moneyComponent: {fileID: 874172207}
+  _tilemapGrass: {fileID: 2031381394}
 --- !u!114 &874172205
 MonoBehaviour:
   m_ObjectHideFlags: 0
