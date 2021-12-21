@@ -28,7 +28,7 @@ public class GameOverComponent : MonoBehaviour
             gameIsOver = true;
         }
 
-        if (_levelComponent.Level >= EnemySpawner.LevelsCount)
+        if (_levelComponent.Level >= EnemySpawner.LevelsCount + 1 && GameObject.FindGameObjectWithTag("Enemy") == null)
         {
             gameIsOver = true;
         }

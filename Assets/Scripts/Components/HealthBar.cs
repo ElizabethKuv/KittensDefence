@@ -7,9 +7,15 @@ public class HealthBar : MonoBehaviour
     private float _originalScale;
     private static readonly int Death = Animator.StringToHash("Death");
 
+    private EnemySpawner _enemySpawner;
+    private GameObject _road;
+
     void Start()
     {
         _originalScale = gameObject.transform.localScale.x;
+
+        _road = GameObject.Find("Road");
+        _enemySpawner = _road.GetComponent<EnemySpawner>();
     }
 
     void Update()
@@ -25,6 +31,7 @@ public class HealthBar : MonoBehaviour
         if (currentHealth <= 0)
         {
             GetComponentInParent<Animator>().SetTrigger(Death);
+            _enemySpawner.EnemyDefeated();
         }
     }
 }

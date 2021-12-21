@@ -9,7 +9,7 @@ public class LevelComponent : MonoBehaviour
 
     void Awake()
     {
-        Level = 1;
+        Level = 0;
     }
 
     public int Level
